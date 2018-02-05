@@ -17,6 +17,8 @@ Plots can be zoomed.
 - netstat
 - ifstat
 - top
+- sed
+- cat
 
 Eventual tuning is required depending on the system
 
@@ -31,4 +33,4 @@ Eventual tuning is required depending on the system
 
 ## Cron - 1 minute, HDD polling - 10 minutes (latency)
 
-* * * * * /usr/NET/scripts/update_mon.sh   2>&1
+\* \* \* \* \* update_mon.sh   2>&1
