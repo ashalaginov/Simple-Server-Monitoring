@@ -1,0 +1,207 @@
+<html>
+    <head>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/1.1.1/dygraph-combined.js"></script>
+        <style type="text/css">
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            #content {
+                margin:0 auto;
+                width:640px;
+            }
+
+            #graphdiv1, #graphdiv2, #graphdiv3, #graphdiv4 , #graphdiv5, #graphdiv6{
+                background: rgb(57, 57, 57) none repeat scroll 0 0;
+                border: 1px solid #000;
+                border-radius: 10px;
+                box-shadow: 4px 4px 4px #888;
+                padding: 4px;
+                margin:10px;
+            }
+
+            .dygraph-axis-label , .dygraph-label{
+                color:white;
+                display:block;
+            }
+
+            .dygraph-axis-label-x {
+                margin-top:-3px;
+                margin-left:-5px;
+            }
+
+            .dygraph-legend{
+                font-size: 14px;    
+                width:160px!important;;
+                max-width:500px!important;
+                background-color: transparent !important;
+                left: 60px !important;
+                line-height: normal;
+                overflow: hidden;
+                position: absolute;
+                text-align: left;
+                top: 0;
+                z-index: 10;
+                background-color: rgba(200, 200, 255, 0.75) !important;
+                border: 1px solid #000;
+                border-radius: 10px;
+                box-shadow: 4px 4px 4px #888;
+                padding: 4px;
+                pointer-events: none;
+            }
+
+            pre {
+                margin-top: 30px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="content">
+            <div id="graphdiv1"  style="width:640px; height:240px;"></div>
+
+            <div id="graphdiv2"  style="width:640px; height:240px;"></div>
+
+            <div id="graphdiv3"  style="width:640px; height:240px;"></div>
+
+            <div id="graphdiv4"  style="width:640px; height:240px;"></div>
+
+            <div id="graphdiv5"  style="width:640px; height:240px;"></div>
+
+            <div id="graphdiv6"  style="width:640px; height:240px;"></div>
+        </div>
+
+
+        <script type="text/javascript">
+            g1 = new Dygraph(
+                    document.getElementById("graphdiv1"),
+                    "loads.csv", // path to CSV file
+                    {labels: ["Date", "1min", "5 min", "15 min"],
+                        labelsSeparateLines: true,
+                        ylabel: 'Loads',
+                        legend: 'onmouseover',
+                        rollPeriod: 1,
+                        colors: ["#AA0000",
+                            "#00FF00",
+                            "#0000FF", ],
+                        width: 480,
+                        height: 320,
+                        strokeWidth: 2,
+                    }          // options
+            );
+
+            g2 = new Dygraph(
+                    document.getElementById("graphdiv2"),
+                    "temps.csv", // path to CSV file
+                    {labels: ["Date", "C1", "C2", "C3", "C4", "HDD1", "HDD2"],
+                        labelsSeparateLines: true,
+                        ylabel: 'Temperature, C',
+                        legend: 'onmouseover',
+                        rollPeriod: 1,
+                        colors: ["#0044FF",
+                            "#0011FF",
+                            "#0033EE",
+                            "#001133",
+                            "#00AA00",
+                            "#11CC33"],
+                        width: 480,
+                        height: 320,
+                        strokeWidth: 2,
+                    }          // options
+            );
+
+            g3 = new Dygraph(
+                    document.getElementById("graphdiv3"),
+                    "conns.csv", // path to CSV file
+                    {labels: ["Date", "All", "HTTP"],
+                        labelsSeparateLines: true,
+                        ylabel: 'Ccnnections',
+                        legend: 'onmouseover',
+                        rollPeriod: 1,
+                        colors: ["#cccccc",
+                            "#888888"],
+                        width: 480,
+                        height: 320,
+                        strokeWidth: 2,
+                    }          // options
+            );
+
+
+
+            g4 = new Dygraph(
+                    document.getElementById("graphdiv4"),
+                    "trafs.csv", // path to CSV file
+                    {labels: ["Date", "Incoming", "Ougoing"],
+                        labelsSeparateLines: true,
+                        ylabel: 'Traffic, KB/s',
+                        legend: 'onmouseover',
+                        rollPeriod: 1,
+                        colors: ["#FF0000",
+                            "#FFFF00"],
+                        width: 480,
+                        height: 320,
+                        strokeWidth: 2,
+                        fillGraph: true,
+                        series: {
+                            'Fill': {
+                                fillGraph: true,
+                                strokeWidth: 0,
+                                highlightCircleSize: 0
+                            }
+                        }
+                    }          // options
+            );
+
+
+            g5 = new Dygraph(
+                    document.getElementById("graphdiv5"),
+                    "mems.csv", // path to CSV file
+                    {labels: ["Date", "Active", "Inact", "Wired", "Cache", "Buffer", "Free", "SwapUsed", "SwapFree"],
+                        labelsSeparateLines: true,
+                        ylabel: 'Memory, MB',
+                        legend: 'onmouseover',
+                        rollPeriod: 1,
+                        colors: ["#00FF00",
+                            "#00A000",
+                            "#009D00",
+                            "#00CA00",
+                            "#008800",
+                            "#DDDD00",
+                            "#8040BF",
+                            "#E5F69D"
+                        ],
+                        width: 480,
+                        height: 320,
+                        strokeWidth: 2,
+                        fillGraph: true,
+                        series: {
+                            'Fill': {
+                                fillGraph: true,
+                                strokeWidth: 0,
+                                highlightCircleSize: 0
+                            }
+                        }
+                    }          // options
+            );
+
+            g6 = new Dygraph(
+                    document.getElementById("graphdiv6"),
+                    "procs.csv", // path to CSV file
+                    {labels: ["Date", "All", "Active"],
+                        labelsSeparateLines: true,
+                        ylabel: 'Pprocesses',
+                        legend: 'onmouseover',
+                        rollPeriod: 1,
+                        colors: ["#cccccc",
+                            "#888888"],
+                        width: 480,
+                        height: 320,
+                        strokeWidth: 2,
+                    }          // options
+            );
+
+        </script>
+    </body>
+</html>
