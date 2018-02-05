@@ -16,23 +16,23 @@ then
     #read smart
     hdd1=`/usr/local/sbin/smartctl -a /dev/ad6 | grep "Temperature_Celsius" | awk -F " " '{print $10}'`
     hdd2=`/usr/local/sbin/smartctl -a /dev/ad8 | grep "Temperature_Celsius" | awk -F " " '{print $10}'`
-    rm /usr/NET/www_pub/hdd_10min.txt
-    touch /usr/NET/www_pub/hdd_10min.txt
-    hdd=`cat /usr/NET/www_pub/hdd_10min.txt`
+    rm hdd_10min.txt
+    touch hdd_10min.txt
+    hdd=`cat hdd_10min.txt`
     #write
     hdd=$hdd1,$hdd2;
-    echo $hdd >> /usr/NET/www_pub/hdd_10min.txt
+    echo $hdd >> hdd_10min.txt
 else
-    if [ ! -f /usr/NET/www_pub/hdd_10min.txt ]; then
+    if [ ! -f hdd_10min.txt ]; then
         hdd1=`/usr/local/sbin/smartctl -a /dev/ad6 | grep "Temperature_Celsius" | awk -F " " '{print $10}'`
 	hdd2=`/usr/local/sbin/smartctl -a /dev/ad8 | grep "Temperature_Celsius" | awk -F " " '{print $10}'`
-	touch /usr/NET/www_pub/hdd_10min.txt
-        hdd=`cat /usr/NET/www_pub/hdd_10min.txt`
+	touch hdd_10min.txt
+        hdd=`cat hdd_10min.txt`
         #write
         hdd=$hdd1,$hdd2;
-        echo $hdd >> /usr/NET/www_pub/hdd_10min.txt
+        echo $hdd >> hdd_10min.txt
     else
-	hdd=`cat /usr/NET/www_pub/hdd_10min.txt`
+	hdd=`cat hdd_10min.txt`
     fi    
 fi
 
