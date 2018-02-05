@@ -4,6 +4,7 @@
 datetime=`date +"%Y/%m/%d% %H:%M:%S"`
 minute=$(date "+%M");
 
+
 #LOADS
 loads=`uptime |  awk -F'averages:' '{print $2}' | tr -d " "`
       
@@ -133,8 +134,8 @@ mem=$Active","$Inact","$Wired","$Cache","$Buf","$Free
 swap=$Used","$FreeSwap
 
 # PROCESSES
-proc=`top -n | sed -n 2p | awk '{printf("%.f,%.f", $1,$3)}'`
-
+proc=`top -n | sed -n 2p | awk '{printf("%.f,%.f", $1,$3)}'`        
+        
         
         
 #WRITING TO CSV FILES
