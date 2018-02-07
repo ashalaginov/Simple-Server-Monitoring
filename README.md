@@ -1,6 +1,6 @@
-## Simple *nux Server Monitoring
-Simple monitoring of core measurements on *nix systems: statistics in CSV files and dynamic graphs (dygraph) in HTML. 
-No special databases or web-servers required. Simple HTML that parses CSV files - very fast and no dynamic content. Plots can be zoomed both X- and Y-wise.
+## Simple FreeBSD/*nix Server Monitoring
+Simple monitoring of core measurements on *nix OS: statistics in CSV files and dynamic graphs (dygraph) in HTML. 
+No special databases or plugins. Simple HTML file that includes CSV files through JavaScript - very fast and no dynamic content. Plots can be zoomed both X- and Y-wise.
 Current configuration includes 7 days statistic: 10,080 measurements = 7 days * 24 hours * 60 minutes.
 
 ## Installation
