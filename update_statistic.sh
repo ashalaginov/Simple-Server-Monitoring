@@ -1,4 +1,6 @@
 #!/bin/sh
+# Script for gathering various system measurements and storing them in CSV file. The CSV files are processed similarly to circular buffer.
+# Old entries are being deleted after corresponding number of measurements is collected
 
 #DATE and TIME
 datetime=`date +"%Y/%m/%d% %H:%M:%S"`
