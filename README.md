@@ -8,9 +8,9 @@ No special procedures, place HTML file in the web-server folder and run Bash scr
 
 ## Measurements
 
-![Screenshot](screenshot1.png)
+![Screenshot](screenshots/screenshot1.png)
 
-![Screenshot](screenshot2.png)
+![Screenshot](screenshots/screenshot2.png)
 
 ## Dependencies
 - Dygraph (included online)
